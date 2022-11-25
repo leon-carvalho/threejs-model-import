@@ -22,6 +22,11 @@ const cubeMaterial = new THREE.MeshNormalMaterial();
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cubeMesh);
 
+const modelLoader = new THREE.GLTFLoader();
+modelLoader.load("assets/squareRing.glb", (glb) => {
+  console.log(glb);
+});
+
 // RENDER LOOP
 function update() {
   cubeMesh.rotation.x += 0.01;
