@@ -25,6 +25,7 @@ scene.add(cubeMesh);
 const modelLoader = new THREE.GLTFLoader();
 modelLoader.load("assets/squareRing.glb", (glb) => {
   console.log(glb);
+  scene.add(glb.scene);
 });
 
 // RENDER LOOP
