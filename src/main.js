@@ -17,6 +17,7 @@ camera.position.set(0, 5, 10);
 camera.lookAt(0, 0, 0);
 
 let SquareRingMesh;
+let SquareRingGroup = new THREE.Group();
 
 const modelLoader = new THREE.GLTFLoader();
 modelLoader.load("assets/squareRing.glb", (glb) => {
@@ -33,17 +34,14 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
     const clones = SquareRingMesh.clone();
     clones.scale.set(i, i, i);
 
-    scene.add(clones);
+    SquareRingGroup.add(clones);
   }
+
+  scene.add(SquareRingGroup);
 });
 
 // RENDER LOOP
 function update() {
-  if (SquareRingMesh !== undefined) {
-    SquareRingMesh.rotation.x += 0.01;
-    SquareRingMesh.rotation.y += 0.01;
-  }
-
   renderer.render(scene, camera);
   requestAnimationFrame(update);
 }
