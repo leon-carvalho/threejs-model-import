@@ -16,12 +16,6 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 5, 10);
 camera.lookAt(0, 0, 0);
 
-// CUBE SETUP
-const cubeGeometry = new THREE.BoxGeometry(1, 1, 3);
-const cubeMaterial = new THREE.MeshNormalMaterial();
-const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-scene.add(cubeMesh);
-
 const modelLoader = new THREE.GLTFLoader();
 modelLoader.load("assets/squareRing.glb", (glb) => {
   console.log(glb);
@@ -35,9 +29,6 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
 
 // RENDER LOOP
 function update() {
-  cubeMesh.rotation.x += 0.01;
-  cubeMesh.rotation.y += 0.01;
-
   renderer.render(scene, camera);
   requestAnimationFrame(update);
 }
