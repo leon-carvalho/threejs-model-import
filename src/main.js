@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 5, 10);
+camera.position.set(0, 0, 33);
 camera.lookAt(0, 0, 0);
 
 let SquareRingMesh;
@@ -42,6 +42,9 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
 
 // RENDER LOOP
 function update() {
+  SquareRingGroup.rotation.x += 0.01;
+  SquareRingGroup.rotation.y += 0.01;
+
   renderer.render(scene, camera);
   requestAnimationFrame(update);
 }
