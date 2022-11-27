@@ -29,7 +29,12 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
     }
   });
 
-  scene.add(SquareRingMesh);
+  for (let i = 0; i < 20; i++) {
+    const clones = SquareRingMesh.clone();
+    clones.scale.set(i, i, i);
+
+    scene.add(clones);
+  }
 });
 
 // RENDER LOOP
