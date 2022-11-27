@@ -34,6 +34,11 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
 
 // RENDER LOOP
 function update() {
+  if (SquareRingMesh !== undefined) {
+    SquareRingMesh.rotation.x += 0.01;
+    SquareRingMesh.rotation.y += 0.01;
+  }
+
   renderer.render(scene, camera);
   requestAnimationFrame(update);
 }
