@@ -42,8 +42,11 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
 
 // RENDER LOOP
 function update() {
-  SquareRingGroup.rotation.x += 0.01;
-  SquareRingGroup.rotation.y += 0.01;
+  let i = 0;
+  while (i < SquareRingGroup.children.length) {
+    SquareRingGroup.children[i].rotation.x += 0.01 + i * 0.001;
+    i++;
+  }
 
   renderer.render(scene, camera);
   requestAnimationFrame(update);
