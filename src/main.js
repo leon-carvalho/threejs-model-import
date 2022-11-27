@@ -16,15 +16,20 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 5, 10);
 camera.lookAt(0, 0, 0);
 
+let SquareRingMesh;
+
 const modelLoader = new THREE.GLTFLoader();
 modelLoader.load("assets/squareRing.glb", (glb) => {
   console.log(glb);
-  scene.add(glb.scene);
+
   glb.scene.traverse((child) => {
     if (child instanceof THREE.Mesh) {
+      SquareRingMesh = child;
       child.material = new THREE.MeshNormalMaterial();
     }
   });
+
+  scene.add(SquareRingMesh);
 });
 
 // RENDER LOOP
