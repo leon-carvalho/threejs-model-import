@@ -26,6 +26,11 @@ const modelLoader = new THREE.GLTFLoader();
 modelLoader.load("assets/squareRing.glb", (glb) => {
   console.log(glb);
   scene.add(glb.scene);
+  glb.scene.traverse((child) => {
+    if (child.name == "SquareRing") {
+      child.material = new THREE.MeshNormalMaterial();
+    }
+  });
 });
 
 // RENDER LOOP
