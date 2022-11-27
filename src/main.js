@@ -21,7 +21,7 @@ modelLoader.load("assets/squareRing.glb", (glb) => {
   console.log(glb);
   scene.add(glb.scene);
   glb.scene.traverse((child) => {
-    if (child.name == "SquareRing") {
+    if (child instanceof THREE.Mesh) {
       child.material = new THREE.MeshNormalMaterial();
     }
   });
